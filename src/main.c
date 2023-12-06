@@ -265,7 +265,7 @@ int update(void* ud)
 
     if (cmd == 0)
 	{
-		pd->system->logToConsole("frameMS: %f\n#, BENCH, CALL\n", frameMS);
+		pd->system->logToConsole("frameMS: %d\n#, BENCH, CALL\n", frameMS);
 	}
 
     if ((cmd >= 0) && (cmd < max))
