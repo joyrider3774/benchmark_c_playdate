@@ -82,7 +82,7 @@ void fMathSinSugar(void)
 
 void fMathSinRandom(void)
 {
-	sin(rand() * 6.0f);
+	sin(rand() / RAND_MAX * 6);
 }
 
 void fMathCos(void)
@@ -92,7 +92,7 @@ void fMathCos(void)
     
 void fMathCosRandom(void)
 {
-	cos(rand() * 6.0f);
+	cos(rand() / RAND_MAX * 6);
 }
 
 void fMathFloor(void)
@@ -150,6 +150,23 @@ void fSpriteSetImage(void)
     pd->sprite->setImage(playerSprite, testSprite, kBitmapUnflipped);
 }
 
+void fSpriteSetCenterStatic(void)
+{
+	pd->sprite->setCenter(playerSprite, 0, 0); 
+}
+
+void fSpriteSetCenterToggle(void)
+{
+	float x,y;
+	pd->sprite->getPosition(playerSprite, &x, &y);
+	pd->sprite->setCenter(playerSprite, (int)x & 400 | 0, 0);
+}
+
+void fSpriteSetCenterRandom(void)
+{
+	pd->sprite->setCenter(playerSprite, rand() % 400, 0);
+}
+
 void fSpriteSetZIndex(void) 
 {
 	pd->sprite->setZIndex(playerSprite, 1);
@@ -200,9 +217,9 @@ TestLambdaNamed funcs[] = {
     { "spriteMoveToStatic", fSpriteMoveToStatic},
     { "spriteMoveToRandom", fSpriteMoveToRandom},
     { "spriteSetImage", fSpriteSetImage},
-    { "spriteSetCenterStatic - center not implemented in C", fNotImplemented},
-    { "spriteSetCenterToggle - center not implemented in C", fNotImplemented},
-    { "spriteSetCenterRandom - center not implemented in C", fNotImplemented},
+    { "spriteSetCenterStatic", fSpriteSetCenterStatic},
+    { "spriteSetCenterToggle", fSpriteSetCenterToggle},
+    { "spriteSetCenterRandom", fSpriteSetCenterRandom},
     { "spriteSetZIndex", fSpriteSetZIndex},
     { "draw", fDraw},
     { "drawLockedLocal - lockFocus not implemented in C", fNotImplemented},
