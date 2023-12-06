@@ -1,0 +1,7 @@
+name=Bench C Api
+author=Willems Davy aka Joyrider3774
+description=C Api Benchmark based on LUA / NIM Benchmark
+bundleID=com.joyrider3774.capibenchmark
+version=1.0
+buildNumber=1
+
