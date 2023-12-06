@@ -82,7 +82,7 @@ void fMathSinSugar(void)
 
 void fMathSinRandom(void)
 {
-	sin(rand() / RAND_MAX * 6);
+	sin((float)rand() / RAND_MAX * 6.0f);
 }
 
 void fMathCos(void)
@@ -92,7 +92,7 @@ void fMathCos(void)
     
 void fMathCosRandom(void)
 {
-	cos(rand() / RAND_MAX * 6);
+	cos((float)rand() / RAND_MAX * 6.0f);
 }
 
 void fMathFloor(void)
@@ -159,7 +159,7 @@ void fSpriteSetCenterToggle(void)
 {
 	float x,y;
 	pd->sprite->getPosition(playerSprite, &x, &y);
-	pd->sprite->setCenter(playerSprite, (int)x & 400 | 0, 0);
+	pd->sprite->setCenter(playerSprite, ((int)x & 400) | 0, 0);
 }
 
 void fSpriteSetCenterRandom(void)
